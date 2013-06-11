@@ -12,6 +12,7 @@ Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch0:		fix-build.diff
 
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel
@@ -60,6 +61,7 @@ command line.
 
 %prep
 %setup -q
+%apply_patches
 sed -i -e 's/docbook-to-man/db2x_docbook2man/' configure
 
 %build
@@ -69,10 +71,6 @@ sed -i -e 's/docbook-to-man/db2x_docbook2man/' configure
 	--disable-werror \
 	--with-man=no
 
-sed -i \
-    -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
-    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' \
-    libtool
 %make
 
 %install
@@ -91,6 +89,9 @@ sed -i \
 %files -n %{devname}
 %doc AUTHORS COPYING.GPL COPYING.LGPL COPYING.MPL README
 %{_includedir}/%{name}-%{api}
+%{_includedir}/%{name}-c-%{api}
 %{_libdir}/%{name}-%{api}.so
+%{_libdir}/%{name}-c-%{api}.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
+%{_libdir}/pkgconfig/%{name}-c-%{api}.pc
 
