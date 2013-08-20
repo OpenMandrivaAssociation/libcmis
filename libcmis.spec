@@ -1,18 +1,18 @@
-%define api	0.3
-%define major	3
+%define api	0.4
+%define major	4
 %define libname %mklibname cmis %{api} %{major}
 %define libcmis_c %mklibname cmis-c %{api} %{major}
 %define devname %mklibname -d cmis
 
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
-Version:	0.3.1
+Version:	0.4.1
 Release:	1
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Patch0:		fix-build.diff
+#Patch0:		fix-build.diff
 
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel
