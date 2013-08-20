@@ -12,7 +12,6 @@ Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-#Patch0:		fix-build.diff
 
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel
