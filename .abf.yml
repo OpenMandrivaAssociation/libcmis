@@ -1,2 +1,4 @@
+removed_sources:
+  libcmis-0.3.1.tar.gz: 1e7c855715abb30dd01439e3b853ec4fa3159a6b
 sources:
-  "libcmis-0.3.1.tar.gz": 1e7c855715abb30dd01439e3b853ec4fa3159a6b
+  libcmis-0.4.1.tar.gz: b85833121c0bec56fba8e7033f90bf073004549a
