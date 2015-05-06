@@ -1,13 +1,13 @@
-%define api	0.4
-%define major	4
+%define api	0.5
+%define major	5
 %define libname %mklibname cmis %{api} %{major}
 %define libcmis_c %mklibname cmis-c %{api} %{major}
 %define devname %mklibname -d cmis
 
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
-Version:	0.4.1
-Release:	4
+Version:	0.5.0
+Release:	0.1
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
@@ -61,7 +61,6 @@ command line.
 %prep
 %setup -q
 %apply_patches
-sed -i -e 's/docbook-to-man/db2x_docbook2man/' configure
 
 %build
 %configure2_5x \
