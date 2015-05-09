@@ -12,11 +12,13 @@ Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch1:		0001-fix-boost-configuration-with-gcc-5.patch
 
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	autoconf
 
 %description
 LibCMIS is a C++ client library for the CMIS interface. This allows C++
@@ -62,8 +64,11 @@ command line.
 %setup -q
 %apply_patches
 sed -i -e 's/docbook-to-man/db2x_docbook2man/' configure
+autoreconf -fiv
 
 %build
+export CC=gcc
+export CXX=g++
 %configure \
 	--disable-tests \
 	--disable-werror \
