@@ -1,0 +1,12 @@
+diff -up libcmis-0.5.0/src/libcmis/xml-utils.cxx.omv~ libcmis-0.5.0/src/libcmis/xml-utils.cxx
+--- libcmis-0.5.0/src/libcmis/xml-utils.cxx.omv~	2018-08-01 14:34:07.685909250 +0200
++++ libcmis-0.5.0/src/libcmis/xml-utils.cxx	2018-08-01 14:34:40.495202585 +0200
+@@ -31,7 +31,7 @@
+ #include <sstream>
+ #include <stdlib.h>
+ 
+-#include <boost/uuid/sha1.hpp>
++#include <boost/uuid/name_generator_sha1.hpp>
+ #include <curl/curl.h>
+ 
+ #include "xml-utils.hxx"

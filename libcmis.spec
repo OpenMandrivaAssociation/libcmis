@@ -7,12 +7,13 @@
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
 Version:	0.5.0
-Release:	16
+Release:	17
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		http://sourceforge.net/projects/libcmis/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch1:		0001-fix-boost-configuration-with-gcc-5.patch
+Patch2:		libcmis-0.5.0-boost-1.68.patch
 
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel
@@ -61,8 +62,7 @@ The %{name}-tools package contains a tool for accessing CMIS from the
 command line.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 sed -i -e 's/docbook-to-man/db2x_docbook2man/' configure
 autoreconf -fiv
 
