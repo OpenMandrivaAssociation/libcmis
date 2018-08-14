@@ -1,12 +1,21 @@
-diff -up libcmis-0.5.0/src/libcmis/xml-utils.cxx.omv~ libcmis-0.5.0/src/libcmis/xml-utils.cxx
---- libcmis-0.5.0/src/libcmis/xml-utils.cxx.omv~	2018-08-01 14:34:07.685909250 +0200
-+++ libcmis-0.5.0/src/libcmis/xml-utils.cxx	2018-08-01 14:34:40.495202585 +0200
-@@ -31,7 +31,7 @@
+After https://github.com/boostorg/uuid/commit/33da3e2a5b87 build fails:
+
+xml-utils.cxx:34:10: fatal error: 'boost/uuid/sha1.hpp' file not found
+#include <boost/uuid/sha1.hpp>
+         ^~~~~~~~~~~~~~~~~~~~~
+
+--- a/src/libcmis/xml-utils.cxx.orig	2016-03-01 16:14:26 UTC
++++ b/src/libcmis/xml-utils.cxx
+@@ -31,7 +31,12 @@
  #include <sstream>
  #include <stdlib.h>
  
--#include <boost/uuid/sha1.hpp>
-+#include <boost/uuid/name_generator_sha1.hpp>
++#include <boost/version.hpp>
++#if (BOOST_VERSION >= 106600)
++#include <boost/uuid/detail/sha1.hpp>
++#else
+ #include <boost/uuid/sha1.hpp>
++#endif
  #include <curl/curl.h>
  
  #include "xml-utils.hxx"
