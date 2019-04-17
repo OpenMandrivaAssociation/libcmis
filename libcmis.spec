@@ -6,16 +6,15 @@
 
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
-Version:	0.5.1
-Release:	3
+Version:	0.5.2
+Release:	1
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
 Source0:	https://github.com/tdf/libcmis/releases/download/v%{version}/libcmis-%{version}.tar.gz
-Patch2:		libcmis-0.5.0-boost-1.68.patch
 
 BuildRequires:	docbook2x
-BuildRequires:	boost-devel
+BuildRequires:	boost-devel >= 1.70.0
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	autoconf
@@ -61,12 +60,9 @@ The %{name}-tools package contains a tool for accessing CMIS from the
 command line.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
-export CC=gcc
-export CXX=g++
 %configure \
 	--disable-tests \
 	--disable-werror \
@@ -79,7 +75,6 @@ export CXX=g++
 
 %files tools
 %{_bindir}/cmis-client
-%{_mandir}/manx/cmis-client.xml.*
 
 %files -n %{libname}
 %{_libdir}/%{name}-%{api}.so.%{major}*
@@ -95,4 +90,3 @@ export CXX=g++
 %{_libdir}/%{name}-c-%{api}.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
 %{_libdir}/pkgconfig/%{name}-c-%{api}.pc
-
