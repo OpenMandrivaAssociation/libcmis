@@ -1,5 +1,5 @@
-%define api	0.5
-%define major	5
+%define api 0.5
+%define major 5
 %define libname %mklibname cmis %{api} %{major}
 %define libcmis_c %mklibname cmis-c %{api} %{major}
 %define devname %mklibname -d cmis
@@ -7,7 +7,7 @@
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
 Version:	0.5.2
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
@@ -68,10 +68,10 @@ command line.
 	--disable-werror \
 	--with-man=no
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files tools
 %{_bindir}/cmis-client
