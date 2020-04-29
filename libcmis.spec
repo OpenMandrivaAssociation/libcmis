@@ -7,14 +7,14 @@
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
 Version:	0.5.2
-Release:	3
+Release:	4
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
 Source0:	https://github.com/tdf/libcmis/releases/download/v%{version}/libcmis-%{version}.tar.gz
 Patch0:		libcmis-0.5.2-icu-64.2.patch
 BuildRequires:	docbook2x
-BuildRequires:	boost-devel >= 1.71.0-0
+BuildRequires:	boost-devel >= 1.73.0-0
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	autoconf
