@@ -7,17 +7,24 @@
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
 Version:	0.5.2
-Release:	5
+Release:	6
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
 Source0:	https://github.com/tdf/libcmis/releases/download/v%{version}/libcmis-%{version}.tar.gz
-Patch0:		libcmis-0.5.2-icu-64.2.patch
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel >= 1.73.0-0
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	autoconf
+# OpenMandriva patches
+Patch0:		libcmis-0.5.2-icu-64.2.patch
+# Patches taken from LibreOffice tarball, v7.2.0.3
+Patch100:	0001-rename-class-GetObject-to-avoid-name-clash-on-Window.patch
+Patch101:	libcmis-libxml2_compatibility.patch
+Patch102:	libcmis_onedrive.patch
+Patch103:	libcmis_oauth_pw_as_refreshtoken.patch.1
+Patch104:	libcmis_gdrive.patch.1
 
 %description
 LibCMIS is a C++ client library for the CMIS interface. This allows C++
