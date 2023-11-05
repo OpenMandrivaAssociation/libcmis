@@ -1,13 +1,15 @@
-%define api 0.5
-%define major 5
-%define libname %mklibname cmis %{api} %{major}
-%define libcmis_c %mklibname cmis-c %{api} %{major}
+%define api 0.6
+%define major 6
+%define oldlibname %mklibname cmis 0.5 5
+%define oldlibcmis_c %mklibname cmis-c 0.5 5
+%define libname %mklibname cmis
+%define libcmis_c %mklibname cmis-c
 %define devname %mklibname -d cmis
 
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
-Version:	0.5.2
-Release:	12
+Version:	0.6.0
+Release:	1
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
@@ -17,14 +19,6 @@ BuildRequires:	boost-devel >= 1.73.0-0
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	autoconf
-# OpenMandriva patches
-Patch0:		libcmis-0.5.2-icu-64.2.patch
-# Patches taken from LibreOffice tarball, v7.2.0.3
-Patch100:	0001-rename-class-GetObject-to-avoid-name-clash-on-Window.patch
-Patch101:	libcmis-libxml2_compatibility.patch
-Patch102:	libcmis_onedrive.patch
-Patch103:	libcmis_oauth_pw_as_refreshtoken.patch.1
-Patch104:	libcmis_gdrive.patch.1
 
 %description
 LibCMIS is a C++ client library for the CMIS interface. This allows C++
@@ -34,6 +28,7 @@ Alfresco, Nuxeo for the open source ones.
 %package -n %{libname}
 Summary:	Text categorization library
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 LibCMIS is a C++ client library for the CMIS interface. This allows C++
@@ -43,6 +38,7 @@ Alfresco, Nuxeo for the open source ones.
 %package -n %{libcmis_c}
 Summary:	Text categorization library
 Group:		System/Libraries
+%rename %{oldlibcmis_c}
 
 %description -n %{libcmis_c}
 This package contains a shared library for %{name}.
