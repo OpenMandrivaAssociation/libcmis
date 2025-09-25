@@ -9,7 +9,7 @@
 Summary:	A C++ client library for the CMIS interface
 Name:		libcmis
 Version:	0.6.2
-Release:	3
+Release:	4
 Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
