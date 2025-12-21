@@ -14,6 +14,10 @@ Group:		System/Libraries
 License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
 Source0:	https://github.com/tdf/libcmis/releases/download/v%{version}/libcmis-%{version}.tar.gz
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	docbook2x
 BuildRequires:	boost-devel >= 1.73.0-0
 BuildRequires:	pkgconfig(libcurl)
