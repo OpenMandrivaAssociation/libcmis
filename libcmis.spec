@@ -15,7 +15,6 @@ License:	GPLv2+ or LGPLv2+ or MPLv1.1
 Url:		https://github.com/tdf/libcmis/
 Source0:	https://github.com/tdf/libcmis/releases/download/v%{version}/libcmis-%{version}.tar.gz
 BuildRequires:	automake
-BuildRequires:	libtool-base
 BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:	docbook2x
@@ -70,10 +69,14 @@ command line.
 %autosetup -p1
 
 %build
+# Boost.m4 records header location as -isystem /usr/include, which
+# breaks clang's #include_next <stdlib.h> in libstdc++ cstdlib.
 %configure \
 	--disable-tests \
 	--disable-werror \
-	--with-man=no
+	--with-man=no \
+	BOOST_CPPFLAGS=
+find . -name Makefile -exec sed -i -e 's|[[:space:]]*-isystem[[:space:]]*/usr/include||g' {} +
 
 %make_build
 
